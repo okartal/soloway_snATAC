@@ -8,9 +8,9 @@ rule debarcode:
     Note: Ensure that scATAC_debarcode is added to your path.
     """
     input:
-        ind1="reads/{name}.I1.fastq.gz",
-        ind2="reads/{name}.I2.fastq.gz",
-        read="reads/{name}.{read}.fastq.gz"
+        ind1="data/reads/{name}.I1.fastq.gz",
+        ind2="data/reads/{name}.I2.fastq.gz",
+        read="data/reads/{name}.{read}.fastq.gz"
     output:
         "results/barcoded.{name}.{read}.fastq.gz"
     benchmark:
