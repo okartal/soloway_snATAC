@@ -13,10 +13,9 @@ rule debarcode:
         read="data/reads/{name}.{read}.fastq.gz"
     output:
         "results/barcoded.{name}.{read}.fastq.gz"
-    benchmark:
-        "benchmarks/debarcode/barcoded.{name}.{read}.tsv"
+    # benchmark: "benchmarks/debarcode/barcoded.{name}.{read}.tsv"
     shell:
-        "python2.7 scATAC_debarcode"
+        "scATAC_debarcode"
         " -a {input.ind1}"
         " -b {input.ind2}"
         " -c {input.read}"
