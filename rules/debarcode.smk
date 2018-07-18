@@ -5,9 +5,7 @@ rule debarcode:
     extract and combine the barcodes from the index reads and add the combined
     barcode to the sequence ID of each insert read.
 
-    Note: Ensure that scATAC_debarcode is added to your path or a symbolic link
-    to the script is present in the snakemake working directory. Otherwise, you
-    have to modify the rule.
+    Note: Ensure that scATAC_debarcode is added to your path.
     """
     input:
         ind1="reads/{name}.I1.fastq.gz",
