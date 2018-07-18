@@ -1,0 +1,25 @@
+rule debarcode:
+    """Tag each insert read with the index reads.
+
+    This rule uses a script from the epigen-UCSD/snATAC_pipeline in order to
+    extract and combine the barcodes from the index reads and add the combined
+    barcode to the sequence ID of each insert read.
+
+    Note: Ensure that scATAC_debarcode is added to your path or a symbolic link
+    to the script is present in the snakemake working directory. Otherwise, you
+    have to modify the rule.
+    """
+    input:
+        ind1="reads/{name}.I1.fastq.gz",
+        ind2="reads/{name}.I2.fastq.gz",
+        read="reads/{name}.{read}.fastq.gz"
+    output:
+        "results/barcoded.{name}.{read}.fastq.gz"
+    benchmark:
+        "benchmarks/debarcode/barcoded.{name}.{read}.tsv"
+    shell:
+        "python2.7 scATAC_debarcode"
+        " -a {input.ind1}"
+        " -b {input.ind2}"
+        " -c {input.read}"
+        " | gzip - > {output}"
