@@ -1,4 +1,4 @@
-rule debarcode:
+rule scATAC_debarcode:
     """Tag each insert read with the index reads.
 
     This rule uses a script from the epigen-UCSD/snATAC_pipeline in order to
