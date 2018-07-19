@@ -1,7 +1,9 @@
-config: "config.yaml"
+configfile: 'config.yaml'
+
+UNITS = config['sequencing units']
 
 rule all:
     input:
-        expand("results/barcoded.nextseq.{read}.fastq.gz", read=['R1', 'R2'])
+        expand('results/barcoded.{unit}.{read}.fastq.gz', read=['R1', 'R2'], unit=UNITS),
 
-include: "rules/debarcode.smk"
+include: 'rules/debarcode.smk'

@@ -1,0 +1,17 @@
+sequencing units:
+  # Assumes that input reads are named like sequencing-unit.{I,R}{1,2}.fastq.gz
+  # Use a descriptive name here and if you do not want to rename the original
+  # files you can make a symbolic link in the data/reads folder that conforms
+  # with the required naming.
+  - nextseq
+
+params:
+  scATAC: "\
+    -b data/barcodes/ \
+    -g /shared_data/data/Mus_musculus_UCSC_mm10/Bowtie2Index/genome \
+    -p '/programs/picard-tools-2.8.2/picard.jar MarkDuplicates' \
+    -d 2 \
+    -m 10"
+
+threads:
+  scATAC: 4
