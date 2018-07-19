@@ -1,1 +1,4 @@
 .snakemake
+.test/results
+.test/logs
+.test/benchmarks
