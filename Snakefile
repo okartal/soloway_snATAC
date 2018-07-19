@@ -5,7 +5,7 @@ UNITS = config['sequencing units']
 rule all:
     input:
         expand('results/barcoded.{unit}.{read}.fastq.gz', read=['R1', 'R2'], unit=UNITS),
-        expand('results/{unit}_tmp/nextseq.umap.{suf}', suf=['bam', 'corrected.bam', 'corrected.nsorted.bam'], unit=UNITS)
+        expand('{unit}.bam', unit=UNITS)
 
-include: 'rules/scATAC_debarcode.smk'
-include: 'rules/scATAC_map.smk'
+include: 'rules/debarcode_scATAC.smk'
+include: 'rules/map_scATAC.smk'

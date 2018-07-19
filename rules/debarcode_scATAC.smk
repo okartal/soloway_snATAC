@@ -1,4 +1,4 @@
-rule scATAC_debarcode:
+rule debarcode_scATAC:
     """Tag each insert read with the index reads.
 
     This rule uses a script from the epigen-UCSD/snATAC_pipeline in order to
@@ -11,7 +11,7 @@ rule scATAC_debarcode:
         read="data/reads/{unit}.{read}.fastq.gz"
     output:
         "results/barcoded.{unit}.{read}.fastq.gz"
-    # benchmark: "benchmarks/debarcode/barcoded.{unit}.{read}.tsv"
+    benchmark: "benchmarks/debarcode_scATAC/barcoded.{unit}.{read}.tsv"
     shell:
         "scATAC_debarcode"
         " -a {input.ind1}"
