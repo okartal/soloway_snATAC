@@ -14,6 +14,7 @@ params:
     -m 10"
   snATAC pre: "-t 5 -m 30 -f 2000 -e 75"
   bwa mem: "/shared_data/data/Mus_musculus_UCSC_mm10/BWAIndex/genome"
+  macs2 callpeak: "-f BED -g mm -p 0.05 --nomodel --shift 150 --keep-dup all --outdir results/"
 
 threads:
   scATAC: 4
