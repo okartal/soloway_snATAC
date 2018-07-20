@@ -12,6 +12,10 @@ params:
     -p '/programs/picard-tools-2.8.2/picard.jar MarkDuplicates' \
     -d 2 \
     -m 10"
+  snATAC pre: "-t 5 -m 30 -f 2000 -e 75"
+  bwa mem: "/shared_data/data/Mus_musculus_UCSC_mm10/BWAIndex/genome"
 
 threads:
   scATAC: 4
+  snATAC pre: 4
+  bwa mem: 4
