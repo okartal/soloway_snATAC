@@ -8,5 +8,4 @@ rule callpeak_macs2:
         "logs/callpeak_macs2/{unit}.log"
     params: config['params']['macs2 callpeak']
     shell:
-        "macs2 callpeak -t {input} -n {wildcards.unit} {params}"
-        "2> {log}"
+        "macs2 callpeak -t {input} -n {wildcards.unit} {params} 2> {log}"
