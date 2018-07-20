@@ -9,7 +9,7 @@ rule all:
         expand('results/{unit}.bed.gz', unit=UNITS),
         expand("results/{unit}_peaks.narrowPeak", unit=UNITS),
         expand("results/{unit}_peaks.xls", unit=UNITS),
-        expand("results/{unit}_summits.bed" unit=UNITS)
+        expand("results/{unit}_summits.bed", unit=UNITS)
 
 
 include: 'rules/debarcode_scATAC.smk'
