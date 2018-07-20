@@ -1,5 +1,5 @@
 rule preprocess_snATAC:
-    input: "{unit}.bam"
+    input: "results/{unit}.bam"
     output: "results/{unit}.bed.gz"
     log: "logs/preprocess_snATAC/{unit}.log"
     params: config['params']['snATAC pre']

@@ -5,7 +5,7 @@ rule map_scATAC:
         r1="results/barcoded.{unit}.R1.fastq.gz",
         r2="results/barcoded.{unit}.R2.fastq.gz"
     output:
-        "{unit}.bam"
+        "results/{unit}.bam"
     benchmark: "benchmarks/map_scATAC/{unit}.bam"
     log: "logs/map_scATAC/{unit}.log"
     threads: config['threads']['scATAC']
@@ -17,7 +17,8 @@ rule map_scATAC:
         " -t {threads}"
         " -n {wildcards.unit}"
         " {params}"
-        " > {log}"
+        " > {log};"
+        "mv $(basename -- '{output}' results/{output}"
 
 # Note: This rule only works after some corrections to scATAC, see this diff output:
 # diff --git a/bin/scATAC b/bin/scATAC

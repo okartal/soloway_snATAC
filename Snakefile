@@ -5,7 +5,8 @@ UNITS = config['sequencing units']
 rule all:
     input:
         expand('results/barcoded.{unit}.{read}.fastq.gz', read=['R1', 'R2'], unit=UNITS),
-        expand('{unit}.bam', unit=UNITS),
+        expand('results/{unit}.bam', unit=UNITS),
+        expand('results/{unit}.bam.bai', unit=UNITS),
         expand('results/{unit}.bed.gz', unit=UNITS),
         expand("results/{unit}_peaks.narrowPeak", unit=UNITS),
         expand("results/{unit}_peaks.xls", unit=UNITS),
