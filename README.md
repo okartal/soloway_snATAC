@@ -1,14 +1,11 @@
 # soloway_snATAC
 
-## Requirements
+## Requirements to run the snakemake workflow
 
-1. Clone the following Github repositories:
-    - r3fang/snATAC
-    - epigen-ucsd/snATAC_pipeline
-2. Export bin directory to PATH:
-    - export PATH=$PATH:snATAC/path/to/bin/
-    - export PATH=$PATH:snATAC_pipeline/path/to/bin/
-
-## Snakemake workflow
-
-To run the pipeline in snakemake, ensure that snakemake is installed.
+1. Prior to cloning this repository, do:
+    ```sh
+    git clone git@github.com:r3fang/snATAC.git
+    git clone git@github.com:okartal/snATAC_pipeline.git
+    cd snATAC_pipeline
+    git checkout --track hotfix/file-folder-handling
+    export PATH=$PATH:<path-to-repo>/bin/
