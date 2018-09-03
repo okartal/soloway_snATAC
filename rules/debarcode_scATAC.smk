@@ -11,7 +11,10 @@ rule debarcode_scATAC:
         read="data/reads/{unit}.{read}.fastq.gz"
     output:
         "results/barcoded.{unit}.{read}.fastq.gz"
-    benchmark: "benchmarks/debarcode_scATAC/barcoded.{unit}.{read}.tsv"
+    benchmark:
+        "results/benchmarks/debarcode_scATAC/barcoded.{unit}.{read}.tsv"
+    conda:
+        "../envs/snatac.yaml"
     shell:
         "scATAC_debarcode"
         " -a {input.ind1}"

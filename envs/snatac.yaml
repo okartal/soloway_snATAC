@@ -1,0 +1,12 @@
+name:
+  snATAC
+channels:
+  - bioconda
+dependencies:
+  - bedtools
+  - bowtie2
+  - macs2
+  - pybedtools
+  - pysam
+  - python=2.7
+  - samtools=1.6

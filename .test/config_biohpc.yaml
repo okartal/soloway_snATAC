@@ -8,14 +8,14 @@ sequencing units:
 params:
   scATAC: "\
     -b data/barcodes/ \
-    -g ~/data/Mus_musculus_UCSC_mm10/Bowtie2Index/genome \
+    -g /shared_data/data/Mus_musculus_UCSC_mm10/Bowtie2Index/genome \
     -d 2 \
     -m 10"
-  samtools sort: "-m 8G -n"
-  snATAC pre: "-m 30 -f 2000 -e 75"
+  snATAC pre: "-t 5 -m 30 -f 2000 -e 75"
+  bwa mem: "/shared_data/data/Mus_musculus_UCSC_mm10/BWAIndex/genome"
   macs2 callpeak: "-f BED -g mm -p 0.05 --nomodel --shift 150 --keep-dup all --outdir results/"
 
 threads:
-  scATAC: 4
-  snATAC pre: 4
-  samtools sort: 4
+  scATAC: 8
+  snATAC pre: 8
+  bwa mem: 4
