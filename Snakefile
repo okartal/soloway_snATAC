@@ -11,6 +11,7 @@ rule all:
         expand("results/{unit}_peaks.xls", unit=UNITS),
         expand("results/{unit}_summits.bed", unit=UNITS),
         expand("results/{unit}_reads-per-cell.csv", unit=UNITS),
+        expand("results/{unit}_promoter-coverage.txt", unit=UNITS),
 
 
 include: 'rules/debarcode_scATAC.smk'
@@ -19,3 +20,5 @@ include: 'rules/samtools_sort.smk'
 include: 'rules/preprocess_snATAC.smk'
 include: 'rules/callpeak_macs2.smk'
 include: 'rules/reads_per_cell.smk'
+include: 'rules/bedtools_promotercov.smk'
+
