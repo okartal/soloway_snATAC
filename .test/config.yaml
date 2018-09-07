@@ -14,8 +14,14 @@ params:
   samtools sort: "-m 8G -n"
   snATAC pre: "-m 30 -f 2000 -e 75"
   macs2 callpeak: "-f BED -g mm -p 0.05 --nomodel --shift 150 --keep-dup all --outdir results/"
+  bwa mem:
+    index: ~/data/Mus_musculus_UCSC_mm10/BWAIndex/genome.fa
+    sort: samtools
+    sort_order: queryname
+    sort_extra: ""
 
 threads:
   scATAC: 4
   snATAC pre: 4
   samtools sort: 4
+  bwa mem: 4

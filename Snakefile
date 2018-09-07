@@ -15,10 +15,10 @@ rule all:
         expand("results/{unit}.reads_in_peak", unit=UNITS),
 
 include: 'rules/debarcode_scATAC.smk'
-include: 'rules/map_scATAC.smk'
+include: 'rules/map_bwamem.smk'
 include: 'rules/samtools_sort.smk'
 include: 'rules/preprocess_snATAC.smk'
 include: 'rules/callpeak_macs2.smk'
-include: 'rules/reads_per_cell.smk'
-include: 'rules/bedtools_promotercov.smk'
+include: 'rules/stats_reads-per-cell.smk'
+include: 'rules/stats_promoter-coverage.smk'
 include: 'rules/stats_reads-in-peak.smk'

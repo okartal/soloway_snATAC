@@ -16,7 +16,7 @@ rule debarcode_scATAC:
     conda:
         "../envs/snatac.yaml"
     shell:
-        "scATAC_debarcode"
+        "./../scripts/scATAC_debarcode"
         " -a {input.ind1}"
         " -b {input.ind2}"
         " -c {input.read}"
