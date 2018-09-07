@@ -12,6 +12,7 @@ rule all:
         expand("results/{unit}_summits.bed", unit=UNITS),
         expand("results/{unit}.reads_per_cell", unit=UNITS),
         expand("results/{unit}.promoter_cov", unit=UNITS),
+        expand("results/{unit}.reads_in_peak", unit=UNITS),
 
 include: 'rules/debarcode_scATAC.smk'
 include: 'rules/map_scATAC.smk'
@@ -20,3 +21,4 @@ include: 'rules/preprocess_snATAC.smk'
 include: 'rules/callpeak_macs2.smk'
 include: 'rules/reads_per_cell.smk'
 include: 'rules/bedtools_promotercov.smk'
+include: 'rules/stats_reads-in-peak.smk'
