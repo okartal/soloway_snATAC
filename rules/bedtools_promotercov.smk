@@ -3,9 +3,9 @@ rule bedtools_promotercov:
         reads="results/{unit}.bed.gz",
         promoters="data/mm10_consecutive_promoters.bed"
     output:
-        "results/{unit}_promoter-coverage.txt"
+        "results/{unit}.promoter_cov"
     benchmark:
-        "results/benchmarks/bedtools_promotercov/{unit}_promoter-coverage.txt"
+        "results/benchmarks/bedtools_promotercov/{unit}.promoter-cov.tsv"
     conda:
         "../envs/snatac.yaml"
     shell:

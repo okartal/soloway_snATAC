@@ -2,11 +2,12 @@ rule reads_per_cell:
     input:
         "results/{unit}.bed.gz"
     output:
-        "results/{unit}_reads-per-cell.csv"
+        "results/{unit}.reads_per_cell"
     benchmark:
-        "results/benchmarks/reads_per_cell/{unit}_reads-per-cell.tsv"
+        "results/benchmarks/reads_per_cell/{unit}.reads_per_cell.tsv"
     shell:
         "gzip -cd {input}"
         " | cut -f4 | sort | uniq -c"
-        " | awk '{{OFS=\",\";}} {{ print $2, $1 }}'"
+        " | awk '{{ print $2, $1 }}'"
+        " | sort -k1,1"
         " > {output}"
