@@ -1,11 +1,11 @@
-rule reads_in_peak:
+rule stats_reads_in_peak:
     input:
         reads="results/{unit}.bed.gz",
         peaks="results/{unit}_peaks.narrowPeak"
     output:
         "results/{unit}.reads_in_peak"
     benchmark:
-        "results/benchmarks/stats_reads-in-peak/{unit}.reads_in_peak.tsv"
+        "results/benchmarks/stats_reads-in-peak/{unit}.tsv"
     conda:
         "../envs/snatac.yaml"
     shell:

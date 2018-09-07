@@ -1,11 +1,11 @@
-rule bedtools_promotercov:
+rule stats_promoter_coverage:
     input:
         reads="results/{unit}.bed.gz",
         promoters="data/mm10_consecutive_promoters.bed"
     output:
         "results/{unit}.promoter_cov"
     benchmark:
-        "results/benchmarks/bedtools_promotercov/{unit}.promoter-cov.tsv"
+        "results/benchmarks/stats_promoter-coverage/{unit}.tsv"
     conda:
         "../envs/snatac.yaml"
     shell:
