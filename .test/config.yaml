@@ -19,6 +19,9 @@ params:
     sort: samtools
     sort_order: queryname
     sort_extra: ""
+  cell selection:
+      minimum FRiP score: 0.2
+      minimum reads per barcode: 10
 
 threads:
   scATAC: 4
