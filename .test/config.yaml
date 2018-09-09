@@ -11,7 +11,10 @@ params:
     -g ~/data/Mus_musculus_UCSC_mm10/Bowtie2Index/genome \
     -d 2 \
     -m 10"
-  samtools sort: "-m 8G -n"
+  samtools:
+    nsort: "-m 8G -n"
+    csort: "-m 8G"
+    index: ""
   snATAC pre: "-m 30 -f 2000 -e 75"
   macs2 callpeak: "-f BED -g mm -p 0.05 --nomodel --shift 150 --keep-dup all --outdir results/"
   bwa mem:
@@ -20,11 +23,13 @@ params:
     sort_order: queryname
     sort_extra: ""
   cell selection:
-      minimum FRiP score: 0.2
-      minimum reads per barcode: 10
+    minimum FRiP score: 0.2
+    minimum reads per barcode: 10
+  cell matrix:
+    all sites: True
 
 threads:
   scATAC: 4
   snATAC pre: 4
-  samtools sort: 4
+  samtools: 4
   bwa mem: 4
