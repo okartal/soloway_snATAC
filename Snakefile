@@ -17,7 +17,7 @@ rule all:
         expand("results/{unit}.promoter_cov", unit=UNITS),
         expand("results/{unit}.reads_in_peak", unit=UNITS),
         expand("results/{unit}.xgi", unit=UNITS),
-        expand("results/{unit}.mat", unit=UNITS),
+        expand("results/{unit}.narrowPeak.matrix.txt", unit=UNITS),
 
 include: 'rules/debarcode_scATAC.smk'
 include: 'rules/map_bwamem.smk'
@@ -29,5 +29,5 @@ include: 'rules/callpeak_macs2.smk'
 include: 'rules/stats_reads-per-cell.smk'
 include: 'rules/stats_promoter-coverage.smk'
 include: 'rules/stats_reads-in-peak.smk'
-include: 'rules/qc_cells.smk'
+include: 'rules/cell_selection.smk'
 include: 'rules/cell_matrix.smk'

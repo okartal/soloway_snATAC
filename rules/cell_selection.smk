@@ -1,4 +1,4 @@
-rule qc_cells:
+rule cell_selection:
     input:
         promoters="data/mm10_consecutive_promoters.bed",
         promotercov="results/{unit}.promoter_cov",
@@ -12,4 +12,4 @@ rule qc_cells:
         min_frip = config['params']['cell selection']['minimum FRiP score'],
         min_read = config['params']['cell selection']['minimum reads per barcode']
     script:
-        "../scripts/qc_cells.R"
+        "../scripts/cell_selection.R"

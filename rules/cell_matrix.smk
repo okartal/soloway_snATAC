@@ -5,7 +5,7 @@ rule cell_matrix:
         ind="results/{unit}.xgi",
         bed="results/{unit}_peaks.narrowPeak"
     output:
-        "results/{unit}.mat"
+        "results/{unit}.narrowPeak.matrix.txt"
     benchmark:
         "results/benchmarks/cell_matrix/{unit}.tsv"
     params:
